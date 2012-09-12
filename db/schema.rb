@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120912060954) do
+ActiveRecord::Schema.define(:version => 20120912061643) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,21 @@ ActiveRecord::Schema.define(:version => 20120912060954) do
     t.text     "introduction"
     t.string   "tag"
   end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "comment_type"
+    t.string   "state"
+    t.integer  "movie_id"
+    t.integer  "artist_id"
+    t.date     "comment_date"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "comments", ["artist_id"], :name => "index_comments_on_artist_id"
+  add_index "comments", ["movie_id"], :name => "index_comments_on_movie_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "fans", :force => true do |t|
     t.integer  "artist_id"

@@ -1,5 +1,7 @@
 AvInventory::Application.routes.draw do
 
+  resources :comments
+
   resources :links
 
   resources :movies

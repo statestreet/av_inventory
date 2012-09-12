@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  comment_type: MyString
+  state: MyString
+  movie: 
+  artist: 
+  comment_date: 2012-09-12
+
+two:
+  user: 
+  comment_type: MyString
+  state: MyString
+  movie: 
+  artist: 
+  comment_date: 2012-09-12
