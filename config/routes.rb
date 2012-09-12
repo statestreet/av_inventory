@@ -1,5 +1,6 @@
 AvInventory::Application.routes.draw do
-  resources :aritists
+
+  resources :artists
 
   resources :admins
 

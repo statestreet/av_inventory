@@ -11,17 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120912004614) do
+ActiveRecord::Schema.define(:version => 20120912045909) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
     t.string   "username"
     t.string   "password_digest"
     t.string   "state"
-    t.string   "type"
     t.string   "email"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "admin_type",      :limit => 20
+  end
+
+  create_table "artists", :force => true do |t|
+    t.string   "name"
+    t.string   "country"
+    t.string   "birth"
+    t.string   "figure"
+    t.string   "region"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
