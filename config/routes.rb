@@ -1,5 +1,13 @@
 AvInventory::Application.routes.draw do
 
+  resources :links
+
+  resources :movies
+
+  resources :fans
+
+  resources :users
+
   resources :artists
 
   resources :admins

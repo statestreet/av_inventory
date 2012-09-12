@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120912045909) do
+ActiveRecord::Schema.define(:version => 20120912060954) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -30,8 +30,53 @@ ActiveRecord::Schema.define(:version => 20120912045909) do
     t.string   "birth"
     t.string   "figure"
     t.string   "region"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.text     "introduction"
+    t.string   "tag"
+  end
+
+  create_table "fans", :force => true do |t|
+    t.integer  "artist_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  add_index "fans", ["artist_id"], :name => "index_fans_on_artist_id"
+  add_index "fans", ["user_id"], :name => "index_fans_on_user_id"
+
+  create_table "links", :force => true do |t|
+    t.integer  "movie_id"
+    t.string   "link_type"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "links", ["movie_id"], :name => "index_links_on_movie_id"
+
+  create_table "movies", :force => true do |t|
+    t.integer  "artist_id"
+    t.string   "title"
+    t.date     "publish_date"
+    t.string   "company"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.text     "introduction"
+    t.string   "tag"
+  end
+
+  add_index "movies", ["artist_id"], :name => "index_movies_on_artist_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "state"
+    t.string   "vericode"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

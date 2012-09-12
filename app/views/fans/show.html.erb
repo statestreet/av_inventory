@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Artist:</b>
+  <%= @fan.artist %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @fan.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_fan_path(@fan) %> |
+<%= link_to 'Back', fans_path %>
