@@ -1,0 +1,10 @@
+insert into mysql.user(Host,User,Password,ssl_cipher,x509_issuer,x509_subject) values("210.50.199.185","av_inventory",password("av2012"),'','','');
+create database av_inventory;
+grant all privileges on av_inventory.* to av_inventory@localhost identified by 'av2012'; 
+flush privileges; 
+
+mysql2
+sudo apt-get install libmysqlclient-dev
+
+
+rails g scaffold Admin name:string username:string password_digest:string state:string type:string email:string
