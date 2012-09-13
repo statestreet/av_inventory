@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120912061643) do
+ActiveRecord::Schema.define(:version => 20120913061257) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20120912061643) do
 
   add_index "links", ["movie_id"], :name => "index_links_on_movie_id"
 
+  create_table "models", :force => true do |t|
+    t.string   "attr1"
+    t.string   "attr2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "movies", :force => true do |t|
     t.integer  "artist_id"
     t.string   "title"
@@ -84,14 +91,37 @@ ActiveRecord::Schema.define(:version => 20120912061643) do
 
   add_index "movies", ["artist_id"], :name => "index_movies_on_artist_id"
 
+  create_table "players", :force => true do |t|
+    t.string   "name"
+    t.boolean  "injured"
+    t.decimal  "salary",        :precision => 10, :scale => 0
+    t.date     "date_of_birth"
+    t.integer  "team_id"
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+  end
+
+  add_index "players", ["team_id"], :name => "index_players_on_team_id"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "state"
     t.string   "vericode"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end

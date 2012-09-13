@@ -7,6 +7,7 @@
     <th>Password digest</th>
     <th>State</th>
     <th>Vericode</th>
+    <th>Avatar</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,6 +20,7 @@
     <td><%= user.password_digest %></td>
     <td><%= user.state %></td>
     <td><%= user.vericode %></td>
+	<td><%= image_tag(user.avatar(:thumb)) %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

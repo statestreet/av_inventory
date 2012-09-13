@@ -1,5 +1,11 @@
 AvInventory::Application.routes.draw do
 
+  resources :players do as_routes end
+
+  resources :teams do as_routes end
+
+  resources :models do as_routes end
+
   resources :comments
 
   resources :links
